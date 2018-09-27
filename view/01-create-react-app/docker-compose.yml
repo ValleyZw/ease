@@ -1,0 +1,9 @@
+version: '3.0'
+services:
+  app:
+    image: gin-serve
+    restart: always
+    volumes:
+      - ./build:/app/html
+    ports:
+      - 8080:80
