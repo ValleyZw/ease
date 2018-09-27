@@ -1,6 +1,6 @@
-# React With Webpack
+# React With Fuse-box
 
->Build react app from "scratch" requires two other tools: [webpack](https://webpack.js.org/) for bundle modules and [babel](https://babeljs.io/) for trans-pile code. 
+>Build react app with [fuse-box](https://fuse-box.org/). 
 
 ## Content
 
@@ -29,10 +29,10 @@ $ yarn add react react-dom react-router-dom
 
 - Add packages: 
 
-    - Webpack
+    - Fuse-box
     
 ```npm
-$ yarn add --dev webpack webpack-cli webpack-dev-server
+$ yarn add --dev fuse-box typescript
 ```
 
 - Add packages: 
@@ -40,15 +40,7 @@ $ yarn add --dev webpack webpack-cli webpack-dev-server
     - Babel
     
 ```npm
-$ yarn add --dev @babel/core @babel/preset-env @babel/preset-react babel-loader
-```
-
-- Add packages: 
-
-    - Plugins
-    
-```npm
-$ yarn add --dev copy-webpack-plugin html-webpack-plugin
+$ yarn add --dev babel-core babel-plugin-transform-react-jsx babel-preset-latest
 ```
 
 - Add scripts:
@@ -57,8 +49,8 @@ $ yarn add --dev copy-webpack-plugin html-webpack-plugin
 ```json
 {
   "scripts": {
-    "start": "webpack-dev-server --open --hot  --mode development",
-    "build": "webpack --mode production"
+    "start": "node fuse",
+    "dist": "node fuse dist"
   }
 }
 ``` 
@@ -66,7 +58,7 @@ $ yarn add --dev copy-webpack-plugin html-webpack-plugin
 - Add configurations:
 
 ```bash
-$ touch .babelrc webpack.config.js
+$ touch .babelrc fuse.js
 ```
 
 - Set up configurations and add main scripts
@@ -83,12 +75,13 @@ my-app
   ├── package.json
   ├── docker-compose.yml
   ├── Makefile
-  ├── webpack.config.js
-  ├── assets
-  │   └── favicon.ico
+  ├── fuse.js
   └── src
+      ├── assets
+      │   └── favicon.ico
       ├── index.html
       ├── index.js
+      ├── tsconfig.json
       └── pages/
           ├── about/
           ├── error/
@@ -109,20 +102,14 @@ my-app
 $ yarn start
 ```
 
-Check result:
+- Check result:
 ```bash
-$ http localhost:3000 (or curl localhost:3000)
+$ http localhost:8080 (or curl localhost:8080)
 ```
 
 :v:
 
 #### Production
-
-- Build:
-
-```npm
-$ yarn build
-```
 
 - Deploy:
 
@@ -137,9 +124,7 @@ $ http localhost:8080 (or curl localhost:8080)
 
 ### References
 
-- [Tutorial: How to set up React, webpack 4, and Babel 7 (2018)](https://www.valentinog.com/blog/react-webpack-babel/)
-- [Getting started with REACT.js, using Webpack and Babel](https://medium.com/@siddharthac6/getting-started-with-react-js-using-webpack-and-babel-66549f8fbcb8)
-- [How to conquer Webpack 4 and build a sweet React app](https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745)
-- [Lessons Learned: Code Splitting with Webpack and React](https://hackernoon.com/lessons-learned-code-splitting-with-webpack-and-react-f012a989113)
-
-
+- [FuseBox: JavaScript project](https://fuse-box.org/docs/getting-started/javascript-project)
+- [Introduction to FuseBox — a Faster, Simpler webpack Alternative](https://www.sitepoint.com/fusebox-faster-webpack-alternative/)
+- [From Webpack To FuseBox](https://engineering.huiseoul.com/from-webpack-to-fusebox-bf3b058fdaea)
+- [React example](https://github.com/fuse-box/react-example)
