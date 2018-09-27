@@ -7,5 +7,6 @@ node_modules
 # production
 build
 dist
+.cache
 
 yarn.lock
