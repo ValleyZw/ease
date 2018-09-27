@@ -3,7 +3,7 @@
 Minimal docker container for SPA.
 
 <p align='center'>
-<img src='https://github.com/ValleyZw/ease/tree/master/other/console.png' width='600' alt='console'>
+<img src='https://github.com/ValleyZw/ease/blob/master/other/console.png' width='600' alt='console'>
 </p>
 
 ## Content
