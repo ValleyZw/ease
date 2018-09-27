@@ -1,0 +1,7 @@
+version: '3.0'
+services:
+  app:
+    image: next-serve
+    restart: always
+    ports:
+      - 8080:3000
