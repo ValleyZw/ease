@@ -77,11 +77,13 @@ $ touch .babelrc webpack.config.js
 
 ```bash
 my-app
+  ├── .babelrc
   ├── README.md
   ├── node_modules/
   ├── package.json
   ├── docker-compose.yml
   ├── Makefile
+  ├── webpack.config.js
   ├── assets
   │   └── favicon.ico
   └── src
