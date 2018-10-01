@@ -97,6 +97,8 @@ $ http localhost:8080 (or curl localhost:8080)
 - [How To Write Better Code In React](https://blog.bitsrc.io/how-to-write-better-code-in-react-best-practices-b8ca87d462b0)
 - [React Router 4: A Practical Introduction](https://auth0.com/blog/react-router-4-practical-tutorial/)
 - [React Router Tutorial](https://github.com/reactjs/react-router-tutorial)
+- [A Simple React Router v4 Tutorial](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf)
+
 
 
 

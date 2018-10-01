@@ -1,6 +1,6 @@
-# React With Webpack
+# React TODO App
 
->Build react app from "scratch" requires two other tools: [webpack](https://webpack.js.org/) for bundle modules and [babel](https://babeljs.io/) for trans-pile code. 
+>Build todo app with basic [react](https://reactjs.org/). 
 
 ## Content
 
@@ -10,6 +10,7 @@
   - [Development](#development)
   - [Production](#production)
 - [References](#references)
+
 
 ### Init Project
 
@@ -91,12 +92,9 @@ my-app
   └── src
       ├── index.html
       ├── index.js
-      └── pages/
-          ├── about/
-          ├── error/
-          ├── home/
-          ├── login/
-          └── App.js
+      └── containers/
+          ├── components/
+          └── app.js
 ```
 
 ### How to use
@@ -137,9 +135,11 @@ $ http localhost:8080 (or curl localhost:8080)
 
 ### References
 
-- [Tutorial: How to set up React, webpack 4, and Babel 7 (2018)](https://www.valentinog.com/blog/react-webpack-babel/)
-- [Getting started with REACT.js, using Webpack and Babel](https://medium.com/@siddharthac6/getting-started-with-react-js-using-webpack-and-babel-66549f8fbcb8)
-- [How to conquer Webpack 4 and build a sweet React app](https://medium.freecodecamp.org/how-to-conquer-webpack-4-and-build-a-sweet-react-app-236d721e6745)
-- [Lessons Learned: Code Splitting with Webpack and React](https://hackernoon.com/lessons-learned-code-splitting-with-webpack-and-react-f012a989113)
-
-
+- [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+- [Container Components](https://medium.com/@learnreact/container-components-c0e67432e005)
+- [React Patterns](https://reactpatterns.com/)
+- [I created the exact same app in React and Vue. Here are the differences](https://medium.com/javascript-in-plain-english/i-created-the-exact-same-app-in-react-and-vue-here-are-the-differences-e9a1ae8077fd)
+- [All the fundamental React.js concepts, jammed into this single Medium article](https://medium.freecodecamp.org/all-the-fundamental-react-js-concepts-jammed-into-this-single-medium-article-c83f9b53eac2)
+- [The most important lessons I’ve learned after a year of working with React](https://medium.freecodecamp.org/mindset-lessons-from-a-year-with-react-1de862421981)
+- [Fractal — A react app structure for infinite scale](https://hackernoon.com/fractal-a-react-app-structure-for-infinite-scale-4dab943092af)
+- [Stateful vs. Stateless Functional Components in React](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
