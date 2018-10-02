@@ -27,7 +27,7 @@ $ yarn init -y
     - React
     
 ```npm
-$ yarn add react react-dom react-router-dom
+$ yarn add react react-dom
 ```
 
 - Add packages: 
