@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <title>GO TODO</title>
+</head>
+<body>
+<h2>{{.Title}}</h2>
+
+<hr/>
+
+<input type="text"
+       id="INPUT_CREATE"
+       placeholder="Add todo"
+       autoFocus
+       required/>
+<button id="BUTTON_CREATE">Create</button>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Task</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {{range .Todos}}
+    <tr>
+        {{if .IsEdit}}
+        <td>
+            <input type="text"
+                   id="INPUT_SAVE"
+                   value="{{.Task}}"
+                   autoFocus
+                   required/>
+        </td>
+        {{else}}
+        {{if .IsCompleted}}
+        <td style="color: #333">{{.Task}}</td>
+        {{else}}
+        <td style="color: #ccc">{{.Task}}</td>
+        {{end}}
+        {{end}}
+
+
+        <td>
+            {{if .IsEdit}}
+            <button id="{{.Task}}_SAVE">
+                Save
+            </button>
+            <button id="{{.Task}}_CANCEL">
+                Cancel
+            </button>
+            {{else}}
+            <button id="{{.Task}}_EDIT">
+                Edit
+            </button>
+            <button id="{{.Task}}_FINISH">
+                {{if .IsCompleted}}
+                Start
+                {{else}}
+                Finish
+                {{end}}
+            </button>
+            <button id="{{.Task}}_DELETE">
+                Delete
+            </button>
+            {{end}}
+
+        </td>
+    </tr>
+    {{end}}
+
+    </tbody>
+</table>
+</body>
+
+<script>
+  document.querySelectorAll('button').forEach(element => {
+    element.addEventListener('click', function () {
+      const splitIndex = this.id.lastIndexOf('_')
+      const type = this.id.slice(splitIndex + 1, this.id.length)
+      let payload = type === 'CREATE' ? document.getElementById('INPUT_CREATE').value : this.id.slice(0, splitIndex)
+
+      if (type === 'SAVE') {
+        payload = JSON.stringify({old: payload, new: document.getElementById('INPUT_SAVE').value})
+      }
+
+      fetch('/', {
+        method: 'PUT',
+        body: JSON.stringify({type, payload}),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }
+      }).then(() => location.reload())
+        .catch(error => console.error('Error:', error))
+    }, false)
+  })
+</script>
+
+</html>
