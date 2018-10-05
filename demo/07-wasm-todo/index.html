@@ -1,0 +1,70 @@
+<!doctype html>
+<!--
+Copyright 2018 The Go Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="static/favicon.ico">
+    <title>WASM TODO</title>
+</head>
+
+<body>
+
+<script src="wasm_exec.js"></script>
+
+<script>
+  if (!WebAssembly.instantiateStreaming) { // polyfill
+    WebAssembly.instantiateStreaming = async (resp, importObject) => {
+      const source = await (await resp).arrayBuffer()
+      return await WebAssembly.instantiate(source, importObject)
+    }
+  }
+
+  const go = new Go()
+  let mod, inst
+  WebAssembly.instantiateStreaming(fetch('main.wasm'), go.importObject).then(async (result) => {
+    mod = result.module
+    inst = result.instance
+    await go.run(inst)
+  })
+
+  async function run () {
+    await go.run(inst)
+    inst = await WebAssembly.instantiate(mod, go.importObject) // reset instance
+  }
+
+</script>
+
+<h2>WASM TODO list</h2>
+
+<hr/>
+
+
+<input type="text"
+       id="INPUT_CREATE"
+       placeholder="Add todo"
+       autoFocus
+       required/>
+<button onClick="handleEvents('CREATE', 'INPUT_CREATE');" id="BUTTON_CREATE">Create</button>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Task</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody id="TABLE_BODY">
+    </tbody>
+</table>
+
+</body>
+</html>
